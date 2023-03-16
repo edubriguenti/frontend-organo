@@ -1,11 +1,14 @@
 import './TextField.css'
 
 const TextField = (props) => {
-    console.log(props);
+
+    const onTyping = (event) => {
+        props.aoAlterar(event.target.value)
+    }
     return (
         <div className="text-field">
             <label>{props.label}</label>
-            <input placeholder={`${props.placeholder}...`}/>
+            <input value={props.valor} onChange={onTyping} required={props.required} placeholder={`${props.placeholder}...`}/>
         </div>
     )
 }
